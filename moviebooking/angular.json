@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "moviebooking"
+    }
+  },
+  "defaultProject": "moviebooking",
+  "cli": {
+    "analytics": false
+  }
 }
