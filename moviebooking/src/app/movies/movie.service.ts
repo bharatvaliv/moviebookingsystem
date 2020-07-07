@@ -25,4 +25,8 @@ export class MovieService {
   getMovieUpdateListener() {
     return this.moviesUpdated.asObservable();
   }
+
+  getMovie(index: any) {
+    return this.movies[index];
+  }
 }
