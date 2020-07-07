@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const movies = [
+let movies = [
   {
     id: 1,
     title: 'Ready Player One',
@@ -132,6 +132,23 @@ const movies = [
 
 app.get('/movies', (req, res, next) => {
   res.status(200).json(movies);
+});
+
+app.post('/booktickets', (req, res, next) => {
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].id == req.body.selectedMovie.id) {
+      for (let j = 0; j < movies[i].schedule.length; j++) {
+        if (movies[i].schedule[j].time == req.body.selectedSlot.time) {
+          movies[i].schedule[j].seatsOccupied = movies[i].schedule[
+            j
+          ].seatsOccupied.concat(req.body.selectedSeats);
+          break;
+        }
+      }
+      break;
+    }
+  }
+  res.status(201).json({ message: 'Tickets Booked Succesfully' });
 });
 
 module.exports = app;
