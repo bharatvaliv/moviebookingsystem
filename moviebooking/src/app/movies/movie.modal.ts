@@ -17,6 +17,6 @@ export interface Movie {
   total_seats: total_seats;
   schedule: {
     time: string;
-    seatsOccupied: number[];
+    seatsOccupied?: number[];
   };
 }

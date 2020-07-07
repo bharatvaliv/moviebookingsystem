@@ -101,9 +101,7 @@ const movies = [
 ];
 
 app.get('/movies', (req, res, next) => {
-  res.status(200).json({
-    movies: movies,
-  });
+  res.status(200).json(movies);
 });
 
 module.exports = app;
