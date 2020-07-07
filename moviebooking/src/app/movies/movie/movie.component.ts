@@ -21,12 +21,14 @@ export class MovieComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit() {
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (paramMap.has('index')) {
-        this.index = paramMap.get('index');
-        this.movie = this.movieService.getMovie(this.index);
-        console.log(this.movie);
-      }
+    this.movieService.getMovies();
+    this.movieService.getMovieUpdateListener().subscribe((movies) => {
+      this.route.paramMap.subscribe((paramMap: ParamMap) => {
+        if (paramMap.has('index')) {
+          this.index = paramMap.get('index');
+          this.movie = movies[this.index];
+        }
+      });
     });
   }
 

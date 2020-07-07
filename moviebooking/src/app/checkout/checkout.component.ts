@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MovieService } from '../movies/movie.service';
 
@@ -25,11 +26,13 @@ export class CheckoutComponent implements OnInit {
     { code: 'MOV04', discount: 20 },
   ];
 
-  constructor(public movieService: MovieService) {}
+  constructor(public movieService: MovieService, private router: Router) {}
 
   ngOnInit() {
     this.checkout = this.movieService.getCheckout();
-    console.log(this.checkout);
+    if (!this.checkout) {
+      this.router.navigate(['/']);
+    }
   }
 
   applyCoupon() {
@@ -51,5 +54,12 @@ export class CheckoutComponent implements OnInit {
     } else {
       this.discount = this.checkout.totalCost * (couponDiscount / 100);
     }
+  }
+
+  bookTikets() {
+    this.movieService.bookTikets().subscribe((response) => {
+      alert(response.message);
+      this.router.navigate(['/']);
+    });
   }
 }

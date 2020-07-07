@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="checkout">
   <h1 class="text-center">Checkout</h1>
   <div class="row">
     <div class="col-5">
@@ -66,6 +66,13 @@
           <h5>GRAND TOTAL</h5>
         </div>
         <div class="col-8">{{ checkout.totalCost - discount }} .Rs</div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-primary btn-block" (click)="bookTikets()">
+            Book
+          </button>
+        </div>
       </div>
     </div>
   </div>
