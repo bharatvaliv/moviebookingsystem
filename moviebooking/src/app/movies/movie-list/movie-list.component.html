@@ -1,6 +1,6 @@
 <div class="movie_list">
   <div *ngFor="let movie of movies" class="list">
-    <a [routerLink]="[]">
+    <a [routerLink]="['/movie']">
       <img [src]="movie.image" alt="movie.title" class="movie" />
       <div>
         <label>{{ movie.title }}</label>
