@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5 center">
+      <div><img [src]="movie.image" class="image" /></div>
+    </div>
+    <div class="col-7">
+      <div>
+        <h2>{{ movie.title }}</h2>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h4>Description:</h4>
+          {{ movie.description }}
+        </div>
+      </div>
+      <div class="row">
+        <button
+          *ngFor="let schedule of movie.schedule"
+          type="button"
+          class="btn btn-outline-success mx-2"
+          (click)="selectTime(schedule)"
+        >
+          {{ schedule.time }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedTime" class="row mt-3">
+    <div *ngIf="movie.total_seats.platinum.seats" class="col-12">
+      <h5>Platinum:({{ movie.total_seats.platinum.cost }} .Rs)</h5>
+      <button
+        *ngFor="
+          let seat of getArray(movie.total_seats.platinum.seats);
+          let i = index
+        "
+        type="button"
+        class="btn btn-outline-primary mx-2 mt-2"
+        [disabled]="isBooked('p' + (i + 1))"
+        (click)="selectSeat('p' + (i + 1), movie.total_seats.platinum.cost)"
+        [class.btn-primary]="isSelected('p' + (i + 1))"
+        [class.btn-outline-primary]="!isSelected('p' + (i + 1))"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+    <div *ngIf="movie.total_seats.gold.seats" class="col-12">
+      <h5>Gold:({{ movie.total_seats.gold.cost }} .Rs)</h5>
+      <button
+        *ngFor="
+          let seat of getArray(movie.total_seats.gold.seats);
+          let i = index
+        "
+        type="button"
+        class="btn btn-outline-warning mx-2 mt-2"
+        [disabled]="isBooked('g' + (i + 1))"
+        (click)="selectSeat('g' + (i + 1), movie.total_seats.gold.cost)"
+        [class.btn-warning]="isSelected('g' + (i + 1))"
+        [class.btn-outline-warning]="!isSelected('g' + (i + 1))"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+    <div *ngIf="movie.total_seats.silver.seats" class="col-12">
+      <h5>Silver:({{ movie.total_seats.silver.cost }} .Rs)</h5>
+      <button
+        *ngFor="
+          let seat of getArray(movie.total_seats.silver.seats);
+          let i = index
+        "
+        type="button"
+        class="btn btn-outline-secondary mx-2 mt-2"
+        [disabled]="isBooked('s' + (i + 1))"
+        (click)="selectSeat('s' + (i + 1), movie.total_seats.silver.cost)"
+        [class.btn-secondary]="isSelected('s' + (i + 1))"
+        [class.btn-outline-secondary]="!isSelected('s' + (i + 1))"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+    <div class="col-12">
+      <h2>TOTAL COST: {{ totalCost }}.Rs</h2>
+    </div>
+    <div class="col-12 text-center">
+      <button class="btn btn-danger mt-5">Book Now</button>
+    </div>
+  </div>
+</div>

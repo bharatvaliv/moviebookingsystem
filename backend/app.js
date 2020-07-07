@@ -41,18 +41,28 @@ const movies = [
         cost: 150,
       },
     },
-    schedule: {
-      time: '10:15',
-      seatsOccupied: [],
-    },
+    schedule: [
+      {
+        time: '12:00',
+        seatsOccupied: ['g1', 'p5', 's3'],
+      },
+      {
+        time: '3:00',
+        seatsOccupied: ['g2', 'g5', 's4'],
+      },
+      {
+        time: '9:00',
+        seatsOccupied: ['s3', 'p6', 'p5'],
+      },
+    ],
   },
   {
     id: 2,
-    title: 'Ready Player One',
+    title: 'Dunkirk',
     image:
-      'https://m.media-amazon.com/images/M/MV5BY2JiYTNmZTctYTQ1OC00YjU4LWEwMjYtZjkwY2Y5MDI0OTU3XkEyXkFqcGdeQXVyNTI4MzE4MDU@._V1_.jpg',
+      'https://m.media-amazon.com/images/M/MV5BN2YyZjQ0NTEtNzU5MS00NGZkLTg0MTEtYzJmMWY3MWRhZjM2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg',
     description:
-      'James Halliday designs a virtual reality and hides the keys to his fortune in it for a worthy player to find after his death. Wade, a teenager, sets out on a quest to find the keys and the fortune.',
+      'During World War II, soldiers from the British Empire, Belgium and France try to evacuate from the town of Dunkirk during a arduous battle with German forces',
     total_seats: {
       platinum: {
         seats: 10,
@@ -67,18 +77,28 @@ const movies = [
         cost: 150,
       },
     },
-    schedule: {
-      time: '10:15',
-      seatsOccupied: [],
-    },
+    schedule: [
+      {
+        time: '12:00',
+        seatsOccupied: ['g4', 'p5', 's7'],
+      },
+      {
+        time: '3:00',
+        seatsOccupied: ['g1', 'g2', 'g3'],
+      },
+      {
+        time: '9:00',
+        seatsOccupied: ['s1', 'p2', 'p3'],
+      },
+    ],
   },
   {
     id: 3,
-    title: 'Ready Player One',
+    title: '1917',
     image:
-      'https://m.media-amazon.com/images/M/MV5BY2JiYTNmZTctYTQ1OC00YjU4LWEwMjYtZjkwY2Y5MDI0OTU3XkEyXkFqcGdeQXVyNTI4MzE4MDU@._V1_.jpg',
+      'https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDc2ZmFiNWQ1XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_.jpg',
     description:
-      'James Halliday designs a virtual reality and hides the keys to his fortune in it for a worthy player to find after his death. Wade, a teenager, sets out on a quest to find the keys and the fortune.',
+      'During World War I, two British soldiers -- Lance Cpl. Schofield and Lance Cpl. Blake -- receive seemingly impossible orders. In a race against time, they must cross over into enemy territory to deliver a message that could potentially save 1,600 of their fellow comrades -- including Blakes own brother.',
     total_seats: {
       platinum: {
         seats: 10,
@@ -93,10 +113,20 @@ const movies = [
         cost: 150,
       },
     },
-    schedule: {
-      time: '10:15',
-      seatsOccupied: [],
-    },
+    schedule: [
+      {
+        time: '12:00',
+        seatsOccupied: ['g10', 'p2', 's3'],
+      },
+      {
+        time: '3:00',
+        seatsOccupied: ['g5', 'g6', 's10'],
+      },
+      {
+        time: '9:00',
+        seatsOccupied: ['s2', 'p6', 'p5'],
+      },
+    ],
   },
 ];
 

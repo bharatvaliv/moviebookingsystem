@@ -9,14 +9,16 @@ export interface total_seats {
   silver: seats_cost;
 }
 
+export interface schedule {
+  time: string;
+  seatsOccupied?: string[];
+}
+
 export interface Movie {
   id: number;
   title: string;
   image: string;
   description: string;
   total_seats: total_seats;
-  schedule: {
-    time: string;
-    seatsOccupied?: number[];
-  };
+  schedule: schedule[];
 }
