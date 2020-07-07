@@ -25,7 +25,6 @@ export class MovieService {
       .subscribe((movies) => {
         this.movies = movies;
         this.moviesUpdated.next(this.movies);
-        console.log(this.movies);
       });
   }
 
@@ -48,5 +47,12 @@ export class MovieService {
 
   getCheckout() {
     return this.checkout;
+  }
+
+  bookTikets() {
+    return this.http.post<any>(
+      'http://localhost:3000/booktickets',
+      this.checkout
+    );
   }
 }
