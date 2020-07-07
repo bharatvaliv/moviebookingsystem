@@ -1,0 +1,72 @@
+<div class="container">
+  <h1 class="text-center">Checkout</h1>
+  <div class="row">
+    <div class="col-5">
+      <img [src]="checkout.selectedMovie.image" class="img-fluid" />
+    </div>
+    <div class="col-7">
+      <div class="row">
+        <h3 class="col-12">{{ checkout.selectedMovie.title }}</h3>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h5>
+            Show Time
+          </h5>
+        </div>
+        <div class="col-8">
+          {{ checkout.selectedSlot.time }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h5>Seat No.</h5>
+        </div>
+        <div class="col-8">
+          {{ checkout.selectedSeats.toString() }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h5>
+            Total Cost
+          </h5>
+        </div>
+        <div class="col-8">{{ checkout.totalCost }} .Rs</div>
+      </div>
+      <div class="row">
+        <form class="form-inline">
+          <label class="sr-only" for="inlineFormInputName2">Apply Coupon</label>
+          <input
+            type="text"
+            class="form-control mb-2 mr-sm-2"
+            id="inlineFormInputName2"
+            placeholder="Apply Coupon"
+            name="coupon"
+            [(ngModel)]="appliedCoupon"
+          />
+
+          <button
+            type="button"
+            class="btn btn-primary mb-2"
+            (click)="applyCoupon()"
+          >
+            Apply
+          </button>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h5>Discount</h5>
+        </div>
+        <div class="col-8">{{ discount }} .Rs</div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h5>GRAND TOTAL</h5>
+        </div>
+        <div class="col-8">{{ checkout.totalCost - discount }} .Rs</div>
+      </div>
+    </div>
+  </div>
+</div>

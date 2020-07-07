@@ -19,6 +19,8 @@
           type="button"
           class="btn btn-outline-success mx-2"
           (click)="selectTime(schedule)"
+          [class.btn-outline-success]="!isSelectedSlot(schedule)"
+          [class.btn-success]="isSelectedSlot(schedule)"
         >
           {{ schedule.time }}
         </button>
@@ -81,7 +83,9 @@
       <h2>TOTAL COST: {{ totalCost }}.Rs</h2>
     </div>
     <div class="col-12 text-center">
-      <button class="btn btn-danger mt-5">Book Now</button>
+      <button class="btn btn-danger mt-5" (click)="gotoCheckout()">
+        Book Now
+      </button>
     </div>
   </div>
 </div>

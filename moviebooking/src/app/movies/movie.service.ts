@@ -3,12 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
-import { Movie } from './movie.modal';
+import { Movie, schedule } from './movie.modal';
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {
   private movies: Movie[];
   private moviesUpdated = new Subject<Movie[]>();
+
+  checkout: {
+    selectedMovie: Movie;
+    selectedSlot: schedule;
+    selectedSeats: string[];
+    totalCost: number;
+  };
 
   constructor(public http: HttpClient, private router: Router) {}
 
@@ -28,5 +35,18 @@ export class MovieService {
 
   getMovie(index: any) {
     return this.movies[index];
+  }
+
+  setCheckout(
+    selectedMovie: Movie,
+    selectedSlot: schedule,
+    selectedSeats: string[],
+    totalCost: number
+  ) {
+    this.checkout = { selectedMovie, selectedSlot, selectedSeats, totalCost };
+  }
+
+  getCheckout() {
+    return this.checkout;
   }
 }

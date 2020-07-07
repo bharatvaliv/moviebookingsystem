@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { Movie, schedule } from '../movie.modal';
 import { MovieService } from '../movie.service';
@@ -17,7 +17,8 @@ export class MovieComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
-    public movieService: MovieService
+    public movieService: MovieService,
+    private router: Router
   ) {}
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -55,5 +56,19 @@ export class MovieComponent implements OnInit {
 
   isSelected(seatNo: string) {
     return this.selectedSeats.indexOf(seatNo) == -1 ? false : true;
+  }
+
+  isSelectedSlot(time: schedule) {
+    return this.selectedTime === time;
+  }
+
+  gotoCheckout() {
+    this.movieService.setCheckout(
+      this.movie,
+      this.selectedTime,
+      this.selectedSeats,
+      this.totalCost
+    );
+    this.router.navigate(['/checkout']);
   }
 }
